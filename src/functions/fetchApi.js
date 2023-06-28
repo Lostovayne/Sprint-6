@@ -1,11 +1,5 @@
 import axios from 'axios'
 
-// El botón “Agregar Roommate” de la aplicación cliente genera una petición POST (sin payload) esperando que
-// el servidor registre un nuevo roommate random con la API randomuser, por lo que debes preparar una ruta
-// POST /roommate en el servidor que ejecute una función asíncrona importada de un archivo externo al del
-// servidor (la función debe ser un módulo), para obtener la data de un nuevo usuario y la acumule en un JSON
-// (roommates.json).
-
 import fs from 'fs'
 import path from 'path'
 const __dirname = path.resolve()
@@ -25,4 +19,10 @@ const FetchData = async () => {
   fs.writeFileSync(archivoJson, JSON.stringify(roommates))
 }
 
-export default FetchData
+const readRoommates = () => {
+  const roommates = fs.readFileSync(archivoJson, 'utf-8')
+  const roommatesParse = JSON.parse(roommates)
+  return roommatesParse
+}
+
+export { FetchData, readRoommates }

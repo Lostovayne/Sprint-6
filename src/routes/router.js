@@ -1,8 +1,7 @@
 import express from 'express'
 const router = express.Router()
 
-import FetchData from '../functions/fetchApi.js'
-import readRoommates from '../functions/readData.js'
+import { FetchData, readRoommates } from '../functions/fetchApi.js'
 import readExpenses from '../functions/readExpenses.js'
 import saveExpense from '../functions/addexpense.js'
 import UpdateExpense from '../functions/updateExpense.js'
@@ -18,7 +17,6 @@ router.get('/roommates', (req, res) => {
 })
 
 router.post('/roommate', (req, res) => {
-  console.log('agregando...')
   FetchData()
   res.send('roommate agregado con exito!')
 })

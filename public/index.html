@@ -122,7 +122,6 @@
         const res = await fetch('http://localhost:3000/roommates')
         const data = await res.json()
         roommates = data
-        console.log(roommates)
         return roommates
       }
       const getGastos = async () => {
@@ -133,7 +132,6 @@
       }
 
       async function imprimir() {
-        console.log('Actualizando el html')
         try {
           await getGastos()
           await getRoommates()
@@ -184,7 +182,9 @@
             console.log(error)
           })
           .finally(() => {
-            imprimir()
+            setTimeout(() => {
+              imprimir()
+            }, 2000)
           })
       }
 

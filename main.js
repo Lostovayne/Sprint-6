@@ -13,4 +13,4 @@ app.listen(3000, () => {
   console.log('Example app listening on port 3000!')
 })
 
-// al agregar roommate aveces la api se demora 1 segundo en la respuesta
+// se agregaron 2 segundo al agregar un nuevo roommate
